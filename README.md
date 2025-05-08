@@ -69,14 +69,26 @@ The first chart shows the frequency of genres across the entire dataset. The mos
 
 *The chart reveals an imbalanced dataset, with certain genres (e.g., Drama) dominating the distribution. This imbalance will be taken into account during model training to avoid biased predictions.*
 
-<h4>Genre Distribution</h4>
+<h4>Genre Distribution Graph</h4>
 <img src="https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb" width="800"/>
 
 ### Availability Across Platforms
 The second chart compares the number of titles that are available on at least one of the platforms (Netflix, Amazon Prime, or Disney+) versus those that are not. A large portion of the content is not available on these major platforms, highlighting the selective nature of streaming content acquisition.
 
-<h4>Availability Across Platforms</h4>
+<h4>Availability Across Platforms Graph</h4>
 <img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="600"/>
+
+## Rating Distribution Heatmaps
+
+### Top 15 Genres vs Rating Bins
+This heatmap shows how different genres are distributed across IMDb rating intervals. For example, biography and drama films tend to be concentrated in the mid-to-high rating bins (e.g., 6.0–7.5), while genres like horror and thriller have a wider spread across lower ratings. The normalization helps to compare genres of varying overall frequencies on an equal scale
+
+![Top15genrevsRating Heatmap](https://github.com/user-attachments/assets/6858a4bd-cd85-4ae1-90ab-a05d751c9796)
+
+### Release Year vs Rating Bins (Last 15 Years)
+This heatmap visualizes how IMDb ratings have been distributed over the last 15 years. A clear concentration appears between 6.0 and 7.5 ratings, consistent across years. More recent years such as 2021–2022 also follow the same trend, indicating that rating patterns have remained relatively stable over time.
+
+![YearvsRating Heatmap](https://github.com/user-attachments/assets/17061d45-c0fa-440f-bf81-41febe09ec76)
 
 
 
