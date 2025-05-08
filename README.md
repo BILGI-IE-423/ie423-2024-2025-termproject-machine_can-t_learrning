@@ -76,26 +76,26 @@ The first chart shows the frequency of genres across the entire dataset. The mos
 The second chart compares the number of titles that are available on at least one of the platforms (Netflix, Amazon Prime, or Disney+) versus those that are not. A large portion of the content is not available on these major platforms, highlighting the selective nature of streaming content acquisition.
 
 <h4>Availability Across Platforms Graph</h4>
-<img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="600"/>
+<img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="700"/>
 
 ## Rating Distribution Heatmaps
 
 ### Top 15 Genres vs Rating Bins
 This heatmap shows how different genres are distributed across IMDb rating intervals. For example, biography and drama films tend to be concentrated in the mid-to-high rating bins (e.g., 6.0–7.5), while genres like horror and thriller have a wider spread across lower ratings. The normalization helps to compare genres of varying overall frequencies on an equal scale
 
-<img src="https://github.com/user-attachments/assets/6858a4bd-cd85-4ae1-90ab-a05d751c9796" width="600"/>
+<img src="https://github.com/user-attachments/assets/6858a4bd-cd85-4ae1-90ab-a05d751c9796" width="700"/>
 
 ### Release Year vs Rating Bins (Last 15 Years)
 This heatmap visualizes how IMDb ratings have been distributed over the last 15 years. A clear concentration appears between 6.0 and 7.5 ratings, consistent across years. More recent years such as 2021–2022 also follow the same trend, indicating that rating patterns have remained relatively stable over time.
 
 
-<img src="https://github.com/user-attachments/assets/17061d45-c0fa-440f-bf81-41febe09ec76" width="600"/>
+<img src="https://github.com/user-attachments/assets/17061d45-c0fa-440f-bf81-41febe09ec76" width="700"/>
 
 ### Rating vs Votes Heatmap
 This heatmap shows how user votes are distributed across rating intervals. Lower-rated titles (around 1.0–4.0) are mostly clustered in the 100–1K vote range, indicating less visibility or niche audiences. Higher-rated titles (7.0+) begin to spread into higher vote bins, especially 1K–10K and beyond, which suggests broader popularity and user engagement.
 
 
-<img src="https://github.com/user-attachments/assets/58a3da2f-bd27-4620-a672-becfa352ba06" width="600"/>
+<img src="https://github.com/user-attachments/assets/58a3da2f-bd27-4620-a672-becfa352ba06" width="700"/>
 
 ### Rating vs Duration Heatmap
 This heatmap illustrates how movie durations relate to IMDb ratings. Films between 60–120 minutes dominate most rating bins, especially mid-range ratings like 5.0–7.0. Interestingly, the highest-rated titles (9.0+) show more variability in duration, including both very short and very long formats.
