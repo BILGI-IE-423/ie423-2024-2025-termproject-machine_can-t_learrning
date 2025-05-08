@@ -111,6 +111,15 @@ This heatmap illustrates how movie durations relate to IMDb ratings. Films betwe
 <h4>Rating vs Duration</h4>
 <img src="https://github.com/user-attachments/assets/f3abef26-29c1-4237-b17d-e06eea9d5026" width="700"/>
 
+## Contributors
+Yiğit Can Kınalı - 122203103
+
+Poyraz Esin - 121203089
+
+Eren Cem Beker - 120203070
+
+Mehmet Fatih Çetinkaya - 121205031
+
 
 
 
