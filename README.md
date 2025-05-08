@@ -6,7 +6,7 @@ We want to see if a movie’s good reviews or its well-known director and actors
 By the end, we want to explain how movies move from initial release to streaming menus and why some always show up while others never do.
 ##*Research Questions*
 Are movies with high IMDb ratings and notable attributes, such as director, cast, and genre, more likely to be available on Netflix, Amazon Prime, or Disney+?
-
+k
 
 
 
