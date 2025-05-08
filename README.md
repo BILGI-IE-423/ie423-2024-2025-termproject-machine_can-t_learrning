@@ -63,16 +63,20 @@ We applied TF-IDF vectorization to the description column to turn it into numeri
 Rows with missing or empty values in key columns such as description, rating, and duration were removed. This resulted in a clean, ready to  use dataset for building machine learning models.
 
 ## Content Distribution Insights
-#### Genre Distribution
+
+### Genre Distribution
 The first chart shows the frequency of genres across the entire dataset. The most common genres are Drama, Comedy, and Action, which make up the majority of titles. Less represented genres include Biography, Sci-Fi, and Documentary.
 
-<h4>Genre Distribution</h4>
-<img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="600"/>
+*The chart reveals an imbalanced dataset, with certain genres (e.g., Drama) dominating the distribution. This imbalance will be taken into account during model training to avoid biased predictions.*
 
-#### Availability Across Platforms
+<h4>Genre Distribution</h4>
+<img src="https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb" width="800"/>
+
+### Availability Across Platforms
 The second chart compares the number of titles that are available on at least one of the platforms (Netflix, Amazon Prime, or Disney+) versus those that are not. A large portion of the content is not available on these major platforms, highlighting the selective nature of streaming content acquisition.
 
 <h4>Availability Across Platforms</h4>
-<img src="https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb" width="600"/>
+<img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="600"/>
+
 
 
