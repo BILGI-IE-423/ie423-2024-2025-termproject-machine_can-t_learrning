@@ -66,13 +66,13 @@ Rows with missing or empty values in key columns such as description, rating, an
 #### Genre Distribution
 The first chart shows the frequency of genres across the entire dataset. The most common genres are Drama, Comedy, and Action, which make up the majority of titles. Less represented genres include Biography, Sci-Fi, and Documentary.
 
-
-![grafik1](https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1)
+<h4>Genre Distribution</h4>
+<img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" width="600"/>
 
 #### Availability Across Platforms
 The second chart compares the number of titles that are available on at least one of the platforms (Netflix, Amazon Prime, or Disney+) versus those that are not. A large portion of the content is not available on these major platforms, highlighting the selective nature of streaming content acquisition.
 
-![grafik2](https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb)
-
+<h4>Availability Across Platforms</h4>
+<img src="https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb" width="600"/>
 
 
