@@ -13,7 +13,6 @@
       color: #333;
     }
 
-    /* Navbar styling */
     nav {
       background-color: #2980b9;
       padding: 10px 20px;
@@ -41,7 +40,6 @@
       color: #ecf0f1;
     }
 
-    /* Content styling */
     .container {
       padding: 20px;
       max-width: 1000px;
@@ -89,11 +87,9 @@
     <p>This project investigates factors influencing whether movies and TV shows become available...</p>
 
     <h2 id="scope">Scope of the Project</h2>
-    <p>Imagine opening Netflix on a Friday night, scrolling through Amazon Prime on Saturday, and dipping into Disney+ on Sunday. Some films follow you everywhere, while others seem to vanish from one service and reappear on another. Why?
+    <p>Imagine opening Netflix on a Friday night, scrolling through Amazon Prime on Saturday, and dipping into Disney+ on Sunday. Some films follow you everywhere, while others seem to vanish from one service and reappear on another. Why? Our project follows each film on its journey. We start with basic facts: its IMDb rating, release year, genre, content type, and watch where it ends up: Netflix, Amazon Prime, Disney+, or nowhere at all. We want to see if a movie’s good reviews or its well-known director and actors help it land on the big streaming shelves. Is a high IMDb score a golden ticket? Do certain genres or release years get picked first? Or are there other reasons we don’t yet, see? By the end, we want to explain how movies move from initial release to streaming menus and why some always show up while others never do.</p>
 
-Our project follows each film on its journey. We start with basic facts: its IMDb rating, release year, genre, content type, and watch where it ends up: Netflix, Amazon Prime, Disney+, or nowhere at all. We want to see if a movie’s good reviews or its well-known director and actors help it land on the big streaming shelves. Is a high IMDb score a golden ticket? Do certain genres or release years get picked first? Or are there other reasons we don’t yet, see? By the end, we want to explain how movies move from initial release to streaming menus and why some always show up while others never do.</p>
-
-    <h2 id="preprocessing">Preprocessing Steps</h2>
+     <h2 id="preprocessing">Preprocessing Steps</h2>
     <h3>1. IMDb Dataset Preparation</h3>
     <p>We began by loading two separate IMDb datasets—one for movies and one for TV series—and unified them by standardizing the rating column and adding a new column to identify the type as either "movie" or "tv show." To ensure consistency, we cleaned text-based columns like title, genre, and description by converting them to lowercase, removing punctuation, and trimming extra spaces. Numeric fields such as year, votes, and duration were standardized by extracting values and converting them to integers. Additionally, genres were split and one-hot encoded into binary columns (e.g., genre_comedy, genre_drama) to effectively represent multi-genre entries for machine learning models.</p>
 
@@ -104,14 +100,9 @@ Our project follows each film on its journey. We start with basic facts: its IMD
     <p>We merged the cleaned platform datasets with the IMDb data using standardized titles, adding a column to indicate which platforms each title is available on (e.g., “netflix, amazon”). A binary label called platform_flag was then created to show whether a title is available on at least one platform (1) or not (0), while the full list of platforms remained in a separate column. To prepare for modeling, we applied TF-IDF vectorization to the description column, extracting the top 500 most relevant terms after removing English stopwords. Finally, we removed rows with missing or empty values in key columns such as description, rating, and duration, resulting in a clean and fully prepared dataset for machine learning.</p>
 
     <h2 id="insights">Content Distribution Insights</h2>
-    <h4>Genre Distribution</h4>
     <img src="https://github.com/user-attachments/assets/b29c6e46-f07b-4707-a030-b3b2a4c1dedb" alt="Genre Distribution"/>
-    
-    <h4>Availability Across Platforms</h4>
-    <img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" alt="Platform Availability"/>
-
-    <h4>Genres vs Rating</h4>
-    <img src="https://github.com/user-attachments/assets/6858a4bd-cd85-4ae1-90ab-a05d751c9796" alt="Genres vs Rating"/>
+    <img src="https://github.com/user-attachments/assets/ede50fdb-7626-499d-842e-2ca52f9b6fd1" alt="Availability"/>
+    <img src="https://github.com/user-attachments/assets/6858a4bd-cd85-4ae1-90ab-a05d751c9796" alt="Genres vs Ratings"/>
 
     <h2 id="models">Model Trainings</h2>
 
@@ -120,26 +111,38 @@ Our project follows each film on its journey. We start with basic facts: its IMD
     <img src="https://github.com/user-attachments/assets/61d1c21b-82f4-4b9e-a86a-a6ebf39e8f70"/>
     <img src="https://github.com/user-attachments/assets/c95ef39e-f6f9-45f5-a606-07e87ec64c2c"/>
 
+    <h3>Support Vector Machine (SVM) with Linear Kernel (C = 1)</h3>
+    <p>We trained a Support Vector Machine (SVM) using LinearSVC with a linear kernel, which is well-suited for large, sparse TF-IDF datasets. To address class imbalance, we used <code>class_weight="balanced"</code>, and set C=1 for regularization. Results:</p>
+    <ul>
+      <li>Accuracy: 77.37%</li>
+      <li>Precision: 33%</li>
+      <li>Recall: 62%</li>
+      <li>F1 Score: 43%</li>
+    </ul>
+    <img src="https://github.com/user-attachments/assets/ff51d2b2-63a5-4734-9eb8-6ca5ee10b198" alt="SVM Confusion Matrix"/>
+
+    <h3>Linear SVC (C = 0.1)</h3>
+    <p>Lowering the regularization parameter (C = 0.1) improved performance on the minority class. Results:</p>
+    <ul>
+      <li>Accuracy: 88.18%</li>
+      <li>Precision: 58%</li>
+      <li>Recall: 60%</li>
+      <li>F1 Score: 59%</li>
+    </ul>
+    <p>The confusion matrix shows:</p>
+    <ul>
+      <li>1448 true positives (class 1 correctly identified)</li>
+      <li>979 false negatives (class 1 missed)</li>
+      <li>A decrease in false positives, improving reliability</li>
+    </ul>
+    <img src="https://github.com/user-attachments/assets/d7c8431a-d484-4880-a9cd-8587376a4d45" alt="Linear SVC Confusion Matrix"/>
+
     <h3>XGBoost</h3>
     <p>Accuracy: 80.18%, Precision: 38%, Recall: 68%, F1: 49%</p>
     <img src="https://github.com/user-attachments/assets/4ed01255-5deb-4800-aced-a66d5f7fc9f2"/>
 
     <h2 id="conclusion">Conclusion: Streaming the Unseen</h2>
-    <p>In today’s crowded digital landscape, not every movie ends up on your favorite streaming platform. Some titles appear everywhere Netflix, Prime, Disney+ while others remain mysteriously absent. We set out to uncover the patterns behind this digital availability, combining data science with a bit of storytelling.
-
-We began by collecting and cleaning a large dataset of movies and TV shows. With features like IMDb rating, genre, description, year, and duration, we captured both the quantitative essence of a title and its creative identity. These were merged with availability information across three major platforms, turning our dataset into a lens through which we could explore streaming patterns.
-
-To predict whether a movie is streamable or not, we built and evaluated three machine learning models: Logistic Regression, Support Vector Machines (SVM), and XGBoost.
-
-Logistic Regression offered a transparent and interpretable baseline. After tuning the classification threshold, it provided solid overall accuracy (~84%) but struggled with the minority class predicting which titles are available.
-
-SVM, especially with a lower regularization parameter (C=0.1), performed better in balancing both precision and recall. It achieved higher accuracy and improved recognition of available titles, showing that margin-based classifiers can be effective even with high-dimensional feature spaces.
-
-XGBoost emerged as a strong contender. With thoughtful feature engineering and class balancing, it delivered the best performance in terms of identifying available content achieving a promising blend of recall and precision for the positive class. Its ability to model non-linear interactions gave it an edge in capturing subtle patterns that linear models may miss.
-
-Each model taught us something valuable not just about algorithmic performance, but about the underlying nature of content selection across platforms. By transforming textual descriptions with TF-IDF, encoding genre patterns, and balancing class distributions, we saw how both technical and narrative elements influence streaming availability.
-
-In the end, this project goes beyond prediction. It reveals part of the hidden decision-making behind what we see when we open a streaming app. And while not every movie finds its way onto a platform, through data and models, we’ve begun to understand why</p>
+    <p>In today’s crowded digital landscape, not every movie ends up on your favorite streaming platform. Some titles appear everywhere Netflix, Prime, Disney+ while others remain mysteriously absent. We set out to uncover the patterns behind this digital availability, combining data science with a bit of storytelling. We began by collecting and cleaning a large dataset of movies and TV shows. With features like IMDb rating, genre, description, year, and duration, we captured both the quantitative essence of a title and its creative identity. These were merged with availability information across three major platforms, turning our dataset into a lens through which we could explore streaming patterns. To predict whether a movie is streamable or not, we built and evaluated three machine learning models: Logistic Regression, Support Vector Machines (SVM), and XGBoost. Logistic Regression offered a transparent and interpretable baseline. After tuning the classification threshold, it provided solid overall accuracy (~84%) but struggled with the minority class predicting which titles are available. SVM, especially with a lower regularization parameter (C=0.1), performed better in balancing both precision and recall. It achieved higher accuracy and improved recognition of available titles, showing that margin-based classifiers can be effective even with high-dimensional feature spaces. XGBoost emerged as a strong contender. With thoughtful feature engineering and class balancing, it delivered the best performance in terms of identifying available content achieving a promising blend of recall and precision for the positive class. Its ability to model non-linear interactions gave it an edge in capturing subtle patterns that linear models may miss. Each model taught us something valuable not just about algorithmic performance, but about the underlying nature of content selection across platforms. By transforming textual descriptions with TF-IDF, encoding genre patterns, and balancing class distributions, we saw how both technical and narrative elements influence streaming availability. In the end, this project goes beyond prediction. It reveals part of the hidden decision-making behind what we see when we open a streaming app. And while not every movie finds its way onto a platform, through data and models, we’ve begun to understand why</p>
 
     <h2 id="contributors">Contributors</h2>
     <div class="contributors">
